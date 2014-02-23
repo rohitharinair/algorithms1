@@ -1,0 +1,9 @@
+**/*.zip
+**/*.idea
+**/*.iml
+**/.project
+**/.classpath
+**/.settings
+**/target
+**/.DS*
+Hari
