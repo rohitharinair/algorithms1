@@ -98,16 +98,16 @@ public class DequeTest {
         }
         Iterator<String> iterator1 = deque.iterator();
         Iterator<String> iterator2 = deque.iterator();
-        int iterator1Count = 0;
+        int firstCount = 0;
         while (iterator2.hasNext()) {
             String item = iterator2.next();
-            Assert.assertEquals("Not expected element", item, anArray[iterator1Count]);
-            if (iterator1Count++ == 3) {
+            Assert.assertEquals("Not expected element", item, anArray[firstCount++]);
+            if (firstCount == 3) {
                 // Let us run the next iterator in middle of first
-                int iterator2Count = 0;
+                int secondCount = 0;
                 while (iterator1.hasNext()) {
                     String word = iterator1.next();
-                    Assert.assertEquals("Not expected element - iterator2", word, anArray[iterator2Count]);
+                    Assert.assertEquals("Not expected element - iterator2", word, anArray[secondCount++]);
                 }
             }
         }
