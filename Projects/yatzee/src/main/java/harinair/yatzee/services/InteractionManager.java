@@ -66,4 +66,11 @@ public interface InteractionManager {
      * Shows the score board of the player.
      */
     void showScoreBoard(Player player);
+    
+    /**
+     * Tells player what computer chose for him.
+     * @param player the player
+     * @param play the play chosen
+     */
+    void showPlay(Player player, PlayType play);
 }

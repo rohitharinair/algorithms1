@@ -219,4 +219,9 @@ public class ConsoleInterationManager implements InteractionManager {
         }
         printer.println("=====================================================");
     }
+
+	@Override
+	public void showPlay(Player player, PlayType play) {
+		printer.println(String.format("Hello %s, you are lucky - I chose %s for you!!!", player, play));;
+	}
 }

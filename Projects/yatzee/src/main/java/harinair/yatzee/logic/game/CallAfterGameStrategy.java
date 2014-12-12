@@ -6,18 +6,18 @@ import harinair.yatzee.model.PlayType;
 import harinair.yatzee.model.Player;
 
 /**
- * Contains the logic for a "Call" Game.
+ * The Game Strategy for "Random" Game.
  * 
  * @author ugangha
  */
-public class CallGameStrategy extends BaseGameStrategy implements GameStrategy {
+public class CallAfterGameStrategy extends BaseGameStrategy implements GameStrategy {
 
     @Override
     public void execute(Player player, Die[] dice) {
-        PlayType play = getInteractionManager().choosePlay(player);
         newRoll(dice);
         changeDice(dice);
+        PlayType play = getInteractionManager().choosePlay(player);
         int score = play.getScoringStrategy().scoreFor(dice);
-        player.getScoreboard().setScore(GameType.CALL, play, score);
+        player.getScoreboard().setScore(GameType.CALL_AFTER, play, score);
     }
 }

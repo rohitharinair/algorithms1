@@ -12,7 +12,8 @@ public enum GameType {
     UP("Up"),
     DOWN("Down"),
     RANDOM("Random"),
-    CALL("Call");
+    CALL_BEFORE("CallBefore"),
+    CALL_AFTER("CallAfter");
     private final String displayName;
 
     private GameType(String displayName) {
@@ -28,7 +29,7 @@ public enum GameType {
         String className = "harinair.yatzee.logic.game." + toString() + "GameStrategy";
         GameStrategy gameStrategy = null;
         try {
-            Class claz = Class.forName(className);
+            Class<?> claz = Class.forName(className);
             gameStrategy = (GameStrategy) claz.newInstance();
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
             // ignore
