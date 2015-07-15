@@ -139,9 +139,14 @@ public class TestPercolation {
     public void testCaseInput6() {
         DataReader reader = new DataReader("http://coursera.cs.princeton.edu/algs4/testing/percolation//input6.txt");
         Percolation percolation = new Percolation(reader.getSize());
+        int count = 0;
         while (reader.hasNext()) {
             DataReader.Site site = reader.next();
             percolation.open(site.getI(), site.getJ());
+            count++;
+            if ( count == 1) {
+                Assert.assertTrue(percolation.isFull(1, 6), "isFull(1, 6) returns wrong value [after 1 total calls to open()]");
+            }
         }
         // Done
         Assert.assertTrue(percolation.percolates(), "Should percolate when data is complete");
@@ -164,9 +169,14 @@ public class TestPercolation {
     public void testCaseInput8() {
         DataReader reader = new DataReader("http://coursera.cs.princeton.edu/algs4/testing/percolation//input8.txt");
         Percolation percolation = new Percolation(reader.getSize());
+        int count = 0;
         while (reader.hasNext()) {
             DataReader.Site site = reader.next();
             percolation.open(site.getI(), site.getJ());
+            count++;
+            if ( count == 1) {
+                Assert.assertTrue(percolation.isFull(1, 3), "isFull(1, 3) returns wrong value [after 1 total calls to open()]");
+            }
         }
         // Done
         Assert.assertTrue(percolation.percolates(), "Should percolate when data is complete");
